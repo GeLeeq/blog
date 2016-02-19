@@ -114,5 +114,5 @@ disqus:
   id: piznblog
 
 duoshuo:
-  config: false
-  id: zhanxin
+  config: true
+  id: geleeq
