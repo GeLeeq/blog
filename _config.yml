@@ -64,10 +64,12 @@ nav:
 author:
     name: 力神
     email: ge.liqing@zte.com.cn
-    imageLink: http://tp2.sinaimg.cn/1832671293/180/40020872447/1
+#http://tp2.sinaimg.cn/1832671293/180/40020872447/1
+    imageLink: http://ww4.sinaimg.cn/mw690/bfb36362tw1ehi7432bs9j20dc0hswgn.jpg
     simpleIntro: 我是「力神」葛立青
     detailIntro:
       <p>逆风网咖 Dota2约不？</p>
+
 
 #Follow me, you can choose your icon by http://fortawesome.github.io/Font-Awesome/icons/#brand
 follow:
