@@ -4,14 +4,14 @@ title:  Markdown标准语法
 date:   2016-3-9 17:45:50
 category: "Office"
 ---
-#Standard Markdown
+# Standard Markdown
 
-##Strong and Emphasize
+## Strong and Emphasize
 
 	*emphasize*   **strong**  
 	_emphasize_   __strong__
 
-##Links and Email
+## Links and Email
 Inline:
 
 	An [example](http://url.com/ "Title")
@@ -29,7 +29,7 @@ Email:
 	An email <example@example.com> link.
 
 
-##Images
+## Images
 Inline (titles are optional):
 
 	![alt text](/path/img.jpg "Title")
@@ -40,7 +40,7 @@ Reference-style:
 
 	[id]: /url/to/img.jpg "Title"
 
-##Headers
+## Headers
 
 	Setext-style:
 
@@ -58,7 +58,7 @@ atx-style (closing #’s are optional):
 
 	###### Header 6
 
-##Lists
+## Lists
 Ordered, without paragraphs:
 
 	1.  Foo
@@ -83,7 +83,7 @@ You can nest them:
     	3. burper
 	*   Cunning
 
-##Blockquotes
+## Blockquotes
 
 	> Email-style angle brackets
 	> are used for blockquotes.
@@ -95,7 +95,7 @@ You can nest them:
 	> * You can quote a list.
 	> * Etc.
 
-##Inline Code
+## Inline Code
 
 	`<code>` spans are delimited
 	by backticks.
@@ -103,7 +103,7 @@ You can nest them:
 	You can include literal backticks
 	like `` `this` ``.
 
-##Block Code
+## Block Code
 Indent every line of a code block by at least 4 spaces or 1 tab.
 
 	This is a normal paragraph.
@@ -111,7 +111,7 @@ Indent every line of a code block by at least 4 spaces or 1 tab.
     	This is a preformatted
     	code block.
 
-##Horizontal Rules
+## Horizontal Rules
 Three or more dashes or asterisks:
 
 	---
@@ -120,7 +120,7 @@ Three or more dashes or asterisks:
 
 	- - - -
 
-##Hard Line Breaks
+## Hard Line Breaks
 End a line with two or more spaces:
 
 	Roses are red,   
