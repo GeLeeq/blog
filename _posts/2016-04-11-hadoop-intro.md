@@ -49,6 +49,7 @@ Hadoop有三种运行模式：`独立（本地）模式、伪分布模式、全�
 	$ hadoop MaxTemperature input/ncdc/sample.txt output
 
 第二个运行的是具体的类，需要定义一个HADOOP_CLASSPATH环境变量用于添加应用程序类的路径。
+
 >TIPS: reducer输出目录不应该已经存在的，否则hadoop会报错并拒绝运行作业`Job`
 
 过程输出中可以查看到的主要信息：
@@ -61,9 +62,11 @@ Hadoop有三种运行模式：`独立（本地）模式、伪分布模式、全�
 ### 新旧MapReduce API比较 ###
 
 - 旧API使用`Mapper`和`Reducer`接口，新API中使用虚类，更好扩展
-- 新API使用上下文对象与MapReduce系统通信，`Context`统一了旧API中的`JobConf`、`OutputCollector`和`Reporter`的功能
+- 新API使用上下文对象与MapReduce系统通信，`Context`统一了旧API中的`JobConf`、`OutputCollector`  
+  和`Reporter`的功能
 - 包名，`org.apache.hadoop.mapreduce`新、`org.apache.hadoop.mapred`旧
-- 新API通过重写run()方法允许mapper和reducer控制执行流程，而旧API只能通过写`MapRunnable`类来实现，且reducer没有对等的实现
+- 新API通过重写run()方法允许mapper和reducer控制执行流程，而旧API只能通过写`MapRunnable`类来实现，  
+  且reducer没有对等的实现
 - 新API作业控制由`Job`类实现，旧API使用`JobClient`类
 - 新API配置由`Configuration`来完成，旧API使用`JobConf`
 - 输出命名part-nnmm变为part-m-nnnn/part-r-nnnn
