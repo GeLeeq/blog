@@ -55,18 +55,17 @@ Hadoop有三种运行模式：`独立（本地）模式、伪分布模式、全�
 过程输出中可以查看到的主要信息：
 
 	1. 任务标识 job_local_0001
-	2. map、reduce作业标识 attempt_local_0001_m_000000_0  attempt_local_0001_r_000000_0
+	2. map、reduce作业标识 attempt_local_0001_m_000000_0
+	   、attempt_local_0001_r_000000_0
 	3. 作业统计信息，如：map及reduce输入输出数量
-每个reducer都有一个输出文件名为 `part-r-nnnn`。(其中nnnn是从0000开始的分块序号）
+	   每个reducer都有一个输出文件名为 `part-r-nnnn`。(其中nnnn是从0000开始的分块序号）
 
 ### 新旧MapReduce API比较 ###
 
 - 旧API使用`Mapper`和`Reducer`接口，新API中使用虚类，更好扩展
-- 新API使用上下文对象与MapReduce系统通信，`Context`统一了旧API中的`JobConf`、`OutputCollector`  
-  和`Reporter`的功能
+- 新API使用上下文对象与MapReduce系统通信，`Context`统一了旧API中的`JobConf`、`OutputCollector`和`Reporter`的功能
 - 包名，`org.apache.hadoop.mapreduce`新、`org.apache.hadoop.mapred`旧
-- 新API通过重写run()方法允许mapper和reducer控制执行流程，而旧API只能通过写`MapRunnable`类来实现，  
-  且reducer没有对等的实现
+- 新API通过重写run()方法允许mapper和reducer控制执行流程，而旧API只能通过写`MapRunnable`类来实现,且reducer没有对等的实现
 - 新API作业控制由`Job`类实现，旧API使用`JobClient`类
 - 新API配置由`Configuration`来完成，旧API使用`JobConf`
 - 输出命名part-nnmm变为part-m-nnnn/part-r-nnnn
