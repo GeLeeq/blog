@@ -89,6 +89,7 @@ Hadoop将作业分成若干个小任务(`task`)来执行，其中包括`map`任�
 	- 本地数据
 	- 本地机架
 	- 跨机架（存储某个数据块备份的三个节点正在运行其他map任务，没有空闲的机器，这种情况很少发生）
+
 ![](http://geleeq.github.io/blog/post_res/images/hadoop/task-block-map.jpg)  
 图1 三种map任务输入数据位置
 
