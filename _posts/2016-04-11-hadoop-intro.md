@@ -70,4 +70,51 @@ Hadoop有三种运行模式：`独立（本地）模式、伪分布模式、全�
 - 新API配置由`Configuration`来完成，旧API使用`JobConf`
 - 输出命名part-nnmm变为part-m-nnnn/part-r-nnnn
 
-### 横向扩展（使用HDFS)
+### 横向扩展（使用HDFS) ###
+
+我们需要把数据存储在分布式文件系统中，一般为HDFS，这样允许Hadoop将MapReduce计算转移到存储有部分数据的
+各台机器上。
+
+MapReduce作业(`job`)是客户端要执行的一个工作单元，包括输入数据、MapReduce程序和配置信息。  
+Hadoop将作业分成若干个小任务(`task`)来执行，其中包括`map`任务和`reduce`任务。并有两类节点
+控制着作业的执行过程：一个`jobtracker`及一系列`tasktracker`。`jobtracker`通过调度`tasktracker`
+上运行的任务来协调所有运行在系统上的作业; `tasktracker`在运行任务的同时将运行进度报告发送给`jobtracker`
+；`jobtracker`由此记录每项作业任务的整体进度情况，如果其中一个任务失败，`jobtracker`可以在另一个
+`tasktracker`节点上重新调度该任务。
+
+- Hadoop将输入数据划分成等长的数据块，称为输入分片（`input split`）。  
+- 合理的分片大小应该趋向于HDFS的一个块的大小，HDFS默认块大小是64MB。  
+- Hadoop在存储有输入数据（HDFS中的数据）的节点上运行map任务，可以获得最佳性能，也就是所谓的“数据本地化”。
+针对这点，会出现三种情况的map任务：
+	- 本地数据
+	- 本地机架
+	- 跨机架（存储某个数据块备份的三个节点正在运行其他map任务，没有空闲的机器，这种情况很少发生）
+![](http://geleeq.github.io/blog/post_res/images/hadoop/task-block-map.jpg)  
+图1 三种map任务输入数据位置
+
+MapReduce数据流：  
+虚线框表示节点、虚线箭头表示节点内部的数据传输、实线箭头表示不同节点之间的数据传输。
+![](http://geleeq.github.io/blog/post_res/images/hadoop/task-map-1-reduce.jpg)  
+图2 一个reduce任务的MapReduce数据流  
+![](http://geleeq.github.io/blog/post_res/images/hadoop/task-map-n-reduce.jpg)  
+图3 多个reduce任务的MapReduce数据流  
+
+> map任务的输出数据写入的是本地硬盘而不是HDFS;  
+> reduce任务通过不具备数据本地化，因为需要多个mapper的输出数据
+
+为了减少mapper-->reducer的数据传输量，Hadoop引入一个叫combiner函数：  
+即将mapper的结果进行处理后再传输给reducer，但这个函数需要满足数学中的结合置换性质
+(不影响reducer的输出结果）。  
+	
+	如：max(0, 20, 10, 25, 15) = max(max(0, 20, 10), max(25, 15))
+Hadoop提供了MapReduce的API，允许使用非Java语言来写自己的map和reduce函数。  
+  
+Hadoop Streaming（Streaming JAR文件，指定脚本）
+
+- 使用Unix标准流作为接口（所以，Ruby、Python就可以使用这种方式）
+
+Hadoop Pipes（编程式引入Pipes.hh, HadoopPipes命名空间)
+
+- 使用socket作为接口（C++使用这种方式）  
+
+### Hadoop分布式文件系统 ###
