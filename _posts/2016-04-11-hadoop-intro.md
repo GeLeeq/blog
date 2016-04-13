@@ -108,6 +108,7 @@ MapReduce数据流：
 (不影响reducer的输出结果）。  
 	
 	如：max(0, 20, 10, 25, 15) = max(max(0, 20, 10), max(25, 15))
+
 Hadoop提供了MapReduce的API，允许使用非Java语言来写自己的map和reduce函数。  
   
 Hadoop Streaming（Streaming JAR文件，指定脚本）
