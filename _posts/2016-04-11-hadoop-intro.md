@@ -118,5 +118,3 @@ Hadoop Streaming（Streaming JAR文件，指定脚本）
 Hadoop Pipes（编程式引入Pipes.hh, HadoopPipes命名空间)
 
 - 使用socket作为接口（C++使用这种方式）  
-
-### Hadoop分布式文件系统 ###
