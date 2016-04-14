@@ -51,3 +51,7 @@ namenode和datanode:
 >Hadoop文件系统是一个抽象概念，由java抽象类org.apache.hadoop.fs.FileSystem定义，HDFS就是它的一个具体实现(hdfs.DistributedFileSystem)。类似还有其他实现，如：fs.LocalFileSystem、hdfs.HftpFileSystem(在HTTP上提供对HDFS只读访问的文件系统)、fs.s3native.NativeS3FileSystem(由Amazon S3支持的文件系统)。  
 
 >尽管MapReduce程序可以访问任何文件系统，但处理大数据集时，使用有数据本地优化的分布式文件系统，如HDFS。
+
+### 附录 ###
+伪分布式配置：  
+![](http://geleeq.github.io/blog/post_res/images/hadoop/hadoop-config.jpg)
