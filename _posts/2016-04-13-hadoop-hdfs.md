@@ -5,7 +5,8 @@ date:   2016-04-13 10:53:00
 category: "Hadoop"
 ---
 
-管理网络中跨多台计算机存储的文件系统秒为分布式文件系统（`distributed filesystem`）  
+管理网络中跨多台计算机存储的文件系统秒为分布式文件系统（`distributed filesystem`)
+ 
 ### HDFS特点　###
 
 - 能存储超大文件
@@ -25,7 +26,8 @@ HDFS数据块的好处：
 - 易维护（且文件元数据不存储在块中，而是内存上)
 - 高可用性（块可以复制多份在其他节点上）
 
-namenode和datanode:  
+namenode和datanode:
+
 >HDFS集群中有两类节点以管理者-工作者模式运行： 一个namenode，多个datanode
 
 - namenode维护着文件系统树及整棵树内所有的文件和目录，永久保存在磁盘上：`命名空间镜像文件`和`编辑日志文件`
@@ -54,4 +56,7 @@ namenode和datanode:
 
 ### 附录 ###
 伪分布式配置：  
+
+>配置hadoop的默认文件系统，URI指定，localhost上默认8020端口 
+
 ![](http://geleeq.github.io/blog/post_res/images/hadoop/hadoop-config.jpg)
