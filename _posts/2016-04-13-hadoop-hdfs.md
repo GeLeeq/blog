@@ -43,7 +43,7 @@ namenode和datanode:
 
 - 集群横向扩展（2.x版本引入`联邦HDFS`）：namenode在内存中保存的文件与块的映射关系，当拥有大量文件时，内存成为瓶颈；2.x的Hadoop版本允许通过添加namenode实现扩展，每个namenode管理文件系统命名空间的一部分（如：/user、/share），该功能客户端通过`ViewFileSystem`和viewfs: //URI进行配置和管理。
 
-命令行接口：
+### 命令行接口 ###
 
 	$ bin/hadoop fs -mkdir /tmp
 	$ bin/hadoop fs -copyFromLocal /data/txt/example.txt hdfs://localhost/tmp/example.copy.txt
