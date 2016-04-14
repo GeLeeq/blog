@@ -5,7 +5,7 @@ date:   2016-04-13 10:53:00
 category: "Hadoop"
 ---
 
-管理网络中跨多台计算机存储的文件系统秒为分布式文件系统（`distributed filesystem`)
+管理网络中跨多台计算机存储的文件系统称为分布式文件系统（`distributed filesystem`)
  
 ### HDFS特点　###
 
