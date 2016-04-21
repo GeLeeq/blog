@@ -60,3 +60,69 @@ namenode和datanode:
 >配置hadoop的默认文件系统，URI指定，localhost上默认8020端口 
 
 ![](http://geleeq.github.io/blog/post_res/images/hadoop/hadoop-config.jpg)
+
+### 接口 ###
+Hadoop是用java写的，所以通过Java API可以调用所有Hadoop文件系统的交互操作。
+
+- HTTP
+	- 内嵌的web服务器 `WebHDFS` 目录服务namenode 50070、数据流传输datanode 50075
+	- 独立代理服务器 `HttpFS`
+- C语言
+	- `libhdfs`的C语言库，基于JNI
+	- 与Java API相似，滞后
+- FUSE
+	
+	介绍：用户空间文件系统(Filesystem in Userpace, FUSE), 允许把按照用户空间实现的文件系统整合成一个Unix文件系统。
+	- 通过使用Hadoop的`Fuse-DFS`功能模块，任务Hadoop文件系统(一般不为hdfs)均可以作为一个标准文件系统进行挂载。
+	- `Fuse-DFS`是用C语言实现的 `src/contib/fuse-dfs`
+
+### Java接口 ###
+- 通过java.net.URL完成简单交互， 但需要setURLStreamHandlerFactory，且JVM只允许调用一次该方法。
+		
+		static{
+			URL.setURLStreamHandlerFactory(
+				new org.apache.hadoop.fs.FsUrlStreamHandlerFactory());		
+		}
+		InputStream in = null;
+		try{
+			in = new URL("hdfs://host/path").openStream();
+			org.apache.hadoop.io.IOUtils.copyBytes(in, System.out, 4096, false);
+		} finally {
+     	 	org.apache.hadoop.io.IOUtils.closeStream(in);
+    	}
+- 使用FileSystem API
+		
+		//读取数据
+		import org.apache.hadoop.conf.Configuration;
+		import org.apache.hadoop.fs.FileSystem;
+		import org.apache.hadoop.fs.Path;
+		import org.apache.hadoop.io.IOUtils;
+		
+		public class FileSystemCat {
+		  public static void main(String[] args) throws Exception {
+		    String uri = args[0];
+		    Configuration conf = new Configuration();
+		    FileSystem fs = FileSystem.get(URI.create(uri), conf);//多个重载
+		    InputStream in = null;
+		    try {
+		      in = fs.open(new Path(uri));//很关键， Hadoop Path对象来代表文件
+		      IOUtils.copyBytes(in, System.out, 4096, false);
+		    } finally {
+		      IOUtils.closeStream(in);
+		    }
+		  }
+		}
+	
+		org.apache.hadoop.fs.FSDataInputStream in = fs.open(new Path(uri));//open实际返回的对象
+		FSDataInputStream extends DataInputStream implements Seekable, PositionedReadable{}
+		in.seek(0); //重新定位到文件中任意一个绝对位置，超出会引发IOException; 高开销操作，建设使用MapReduce代替
+		in.read(long position, byte[] buffer, int offset, int length);//指定偏移量处读取文件一部分；高开销操作
+		...
+
+### 数据流 ###
+
+//TODO
+
+### Hadoop存档 ###
+
+//TODO
