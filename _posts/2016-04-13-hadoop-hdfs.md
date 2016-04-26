@@ -85,7 +85,8 @@ Hadoop是用java写的，所以通过Java API可以调用所有Hadoop文件系�
 - FUSE
 	
 	介绍：用户空间文件系统(Filesystem in Userpace, FUSE), 允许把按照用户空间实现的文件系统整合成一个Unix文件系统。
-	- 通过使用Hadoop的`Fuse-DFS`功能模块，任务Hadoop文件系统(一般不为hdfs)均可以作为一个标准文件系统进行挂载。
+	
+	- 通过使用Hadoop的`Fuse-DFS`功能模块，任何Hadoop文件系统(一般不为hdfs)均可以作为一个标准文件系统进行挂载。
 	- `Fuse-DFS`是用C语言实现的 `src/contib/fuse-dfs`
 
 ### Java接口 ###
