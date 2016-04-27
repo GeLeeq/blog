@@ -112,7 +112,7 @@ customLinks:
   - item:
     - text: geleeq@github
       url: https://github.com/GeLeeq
-	- text: geleeq@weibo
+    - text: geleeq@weibo
       url: http://weibo.com/geleeq
     - text: Jekyll Theme
       url: http://www.zhanxin.info/themes.html
