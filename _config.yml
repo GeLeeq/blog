@@ -25,7 +25,6 @@ unpublished:  false
 markdown:     kramdown
 #highlighter:  pygments
 highlighter:  rouge
-extensions: [fenced_code_blocks]
 lsi:          false
 excerpt_separator: "\n\n"
 
