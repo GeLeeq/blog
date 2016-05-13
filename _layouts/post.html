@@ -1,6 +1,5 @@
 ---
 layout: default
-comment: true
 ---
 
 <div class="article article-post">
@@ -11,9 +10,9 @@ comment: true
         <span class="info-title"><i class="icon-folder-open"></i> Category: </span>
         <span class="info-link"><a href="{{ site.url }}/categories.html#{{ page.category }}-ref" >{{ page.category }}</a></span>
     </div>
-	{% highlight ruby linenos%}
+	{% highlight java linenos%}
     {{ content }}
-	{% highlight ruby linenos%}
+	{% highlight java linenos%}
     <nav class="article-previous fn-clear">
         {% if page.previous %}
         <a class="prev" href="{{ site.url }}{{ page.previous.url }}" rel="bookmark">&laquo;&nbsp;{{ page.previous.title | truncatewords:5 }}</a>
@@ -28,17 +27,6 @@ comment: true
         {% else %}
             {% if site.duoshuo.config %}
             <div class="ds-thread"></div>
-			<script type="text/javascript">
-					var duoshuoQuery = {short_name:"geleeq"};
-					(function() {
-						var ds = document.createElement('script');
-						ds.type = 'text/javascript';ds.async = true;
-						ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-						ds.charset = 'UTF-8';
-						(document.getElementsByTagName('head')[0] 
-						|| document.getElementsByTagName('body')[0]).appendChild(ds);
-					})();
-			</script>
             {% endif %}
         {% endif %}
     </div>
