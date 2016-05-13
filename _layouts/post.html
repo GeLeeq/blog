@@ -1,5 +1,6 @@
 ---
 layout: default
+comment: true
 ---
 
 <div class="article article-post">
@@ -10,9 +11,9 @@ layout: default
         <span class="info-title"><i class="icon-folder-open"></i> Category: </span>
         <span class="info-link"><a href="{{ site.url }}/categories.html#{{ page.category }}-ref" >{{ page.category }}</a></span>
     </div>
-	{% highlight java linenos%}
+	{% highlight ruby linenos%}
     {{ content }}
-	{% highlight java linenos%}
+	{% highlight ruby linenos%}
     <nav class="article-previous fn-clear">
         {% if page.previous %}
         <a class="prev" href="{{ site.url }}{{ page.previous.url }}" rel="bookmark">&laquo;&nbsp;{{ page.previous.title | truncatewords:5 }}</a>
