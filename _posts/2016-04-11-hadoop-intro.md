@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  初识hadoop
+title:  初识Hadoop
 date:   2016-04-11 17:15:00
 category: "Hadoop"
 ---
@@ -80,10 +80,10 @@ Hadoop将作业分成若干个小任务(`task`)来执行，其中包括`map`任�
 控制着作业的执行过程：一个`jobtracker`及一系列`tasktracker`。`jobtracker`通过调度`tasktracker`
 上运行的任务来协调所有运行在系统上的作业; `tasktracker`在运行任务的同时将运行进度报告发送给`jobtracker`
 ；`jobtracker`由此记录每项作业任务的整体进度情况，如果其中一个任务失败，`jobtracker`可以在另一个
-`tasktracker`节点上重新调度该任务。
+`tasktracker`节点上重新调度该任务。（新版本：YARN的resourceManager和nodeManager）
 
 - Hadoop将输入数据划分成等长的数据块，称为输入分片（`input split`）。  
-- 合理的分片大小应该趋向于HDFS的一个块的大小，HDFS默认块大小是64MB。  
+- 合理的分片大小应该趋向于HDFS的一个块的大小，HDFS默认块大小是64MB。(新版本2.x是128MB）  
 - Hadoop在存储有输入数据（HDFS中的数据）的节点上运行map任务，可以获得最佳性能，也就是所谓的“数据本地化”。
 针对这点，会出现三种情况的map任务：
 	- 本地数据
