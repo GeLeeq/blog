@@ -6,10 +6,27 @@ category: "Hadoop"
 ---
 
 1.配置（先在一台节点上配置）
+	zookeeper的默认配置文件为zookeeper/conf/zoo_sample.cfg，需要将其修改为zoo.cfg。其中各配置项的含义，解释如下：
 
-	1.1添加一个zoo.cfg配置文件
-	$ZOOKEEPER/conf
-	mv zoo_sample.cfg zoo.cfg
+	tickTime：CS通信心跳时间
+	Zookeeper 服务器之间或客户端与服务器之间维持心跳的时间间隔，也就是每个 tickTime 时间就会发送一个心跳。tickTime以毫秒为单位。
+	tickTime=2000  
+	
+	initLimit：LF初始通信时限
+	集群中的follower服务器(F)与leader服务器(L)之间初始连接时能容忍的最多心跳数（tickTime的数量）。
+	initLimit=5  
+	
+	syncLimit：LF同步通信时限
+	集群中的follower服务器与leader服务器之间请求和应答之间能容忍的最多心跳数（tickTime的数量）。
+	syncLimit=2  
+	 
+	dataDir：数据文件目录
+	Zookeeper保存数据的目录，默认情况下，Zookeeper将写数据的日志文件也保存在这个目录里。
+	dataDir=/home/michael/opt/zookeeper/data  
+	
+	clientPort：客户端连接端口
+	客户端连接 Zookeeper 服务器的端口，Zookeeper 会监听这个端口，接受客户端的访问请求。
+	clientPort=2181 
 	
 	1.2修改配置文件（zoo.cfg）
 		dataDir=/home/hadoop/app/zookeeper-3.4.5/data
