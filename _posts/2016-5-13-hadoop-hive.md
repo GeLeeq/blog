@@ -5,8 +5,8 @@ date:   2016-5-13 10:43:27
 category: "Hadoop"
 ---
 
-![](http://geleeq.github.io/blog/post_res/images/hadoop/hivearch.jpg)
-![](http://geleeq.github.io/blog/post_res/images/hadoop/hivemetastore.jpg)
+![](http://leeqge.github.io/blog/post_res/images/hadoop/hivearch.jpg)
+![](http://leeqge.github.io/blog/post_res/images/hadoop/hivemetastore.jpg)
 
 - **embedded metastore** 每次只有一个内嵌Derby数据库可以访问某个磁盘上的数据库文件
 - **local metastore** metastore服务仍然和Hive服务运行在同一个进程中（javax.jdo.option.*配置指定数据库）
