@@ -95,22 +95,18 @@ author:
       <p>&nbsp;&nbsp;重要的事情要说三遍!</p>
 #Follow me, you can choose your icon by http://fortawesome.github.io/Font-Awesome/icons/#brand
 follow:
-  - class: icon-rss
-    url: /atom.xml
+#  - class: icon-rss
+#    url: /atom.xml
   - class: icon-weibo
-    url: http://weibo.com/ge
-    
-    
-    
-
-  - class: icon-renren
-    url: http://renren.com
+    url: http://weibo.com/geleeq
+#  - class: icon-renren
+#    url: http://renren.com
   - class: icon-github-alt
-    url: http://github.com/GeLeeq
-  - class: icon-twitter
-    url: http://twitter.com/
-  - class: icon-google-plus
-    url: http://google.com
+    url: http://github.com/LeeqGe
+#  - class: icon-twitter
+#    url: http://twitter.com/
+#  - class: icon-google-plus
+#    url: http://google.com
 
 #Links
 customLinks:
