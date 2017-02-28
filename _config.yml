@@ -43,10 +43,10 @@ timezone:      null
 
 #Site config
 title: blog
-description: geleeq's blog.
-keywords: geleeq blog
+description: leeq's blog.
+keywords: leeq blog
 #local jekyll:  http://localhost:4000
-url: http://geleeq.github.io/blog
+url: http://leeqge.github.io/blog
 feed: /atom.xml
 favicon: http://jekyllrb.com/favicon.png
 
@@ -68,7 +68,7 @@ author:
     name: 立神
     email: ge.liqing@zte.com.cn
 #http://tp2.sinaimg.cn/1832671293/180/40020872447/1
-    imageLink: http://geleeq.github.io/blog/images/touxian.jpg
+    imageLink: http://leeqge.github.io/blog/images/touxian.jpg
     simpleIntro: 我是「立神」葛立青 [福州] [ZTE-nubia] [服务端开发] 
     detailIntro:
       </br>
@@ -98,7 +98,11 @@ follow:
   - class: icon-rss
     url: /atom.xml
   - class: icon-weibo
-    url: http://weibo.com/geleeq
+    url: http://weibo.com/ge
+    
+    
+    
+
   - class: icon-renren
     url: http://renren.com
   - class: icon-github-alt
@@ -111,9 +115,9 @@ follow:
 #Links
 customLinks:
   - item:
-    - text: geleeq@github
-      url: https://github.com/GeLeeq
-    - text: geleeq@weibo
+    - text: leeq@github
+      url: https://github.com/LeeqGe
+    - text: leeq@weibo
       url: http://weibo.com/geleeq
     - text: Jekyll Theme
       url: http://www.zhanxin.info/themes.html
